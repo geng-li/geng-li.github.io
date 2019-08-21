@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>test-categories | Hexo</title>
-  <meta name="keywords" content=" life ">
-  <meta name="description" content="test-categories | Hexo">
+  <title>ROS文件操作常用命令 | Hexo</title>
+  <meta name="keywords" content=" ros ">
+  <meta name="description" content="ROS文件操作常用命令 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About">
@@ -226,9 +226,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-test-categories" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-ros-filesystem-tools-md" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">test-categories</h1>
+        <h1 class="article-title">ROS文件操作常用命令</h1>
     
     <div class="article-meta">
         
@@ -236,21 +236,21 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="live">live</a>
+                <a href="javascript:" data-rel="ROS">ROS</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">life</a>
+            <a href="javascript:" class="color4">ros</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-08-20 16:58:26'>2019-08-20 16:57</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-20 23:17:04'>2019-08-20 23:11</time>
         
     </div>
     <div class="article-meta">
@@ -272,7 +272,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第二节"><span class="toc-text">第二节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-rospack"><span class="toc-text">1. rospack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-roscd"><span class="toc-text">2. roscd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-rosls"><span class="toc-text">3. rosls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-tab键"><span class="toc-text">4. tab键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-总结"><span class="toc-text">5. 总结</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -287,7 +287,50 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Nothing to say!!!</p>
+        <h1 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a>第二节</h1><p>这一节介绍ROS的一些文件管理工具。ROS里面有很多应用，比如一个机器人，有摄像头、有激光传感器、有运动控制，那么我们可以模块化地进行相关控制。每个模块放在一个文件夹里，这样的一个文件夹就是一个package。我们先不介绍怎么写packages，先看看怎么使用一些命令来方便查看pacakges。具体参考<a href="http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem" target="_blank" rel="noopener">此处</a>。</p>
+<hr>
+<h3 id="1-rospack"><a href="#1-rospack" class="headerlink" title="1. rospack"></a>1. rospack</h3><p>rospack可以得到ROS中packages的信息。rospack可以加不同的选项，这里以rospack find为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rospack find [package_name]</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rospack find roscpp</span><br></pre></td></tr></table></figure>
+
+<p>就是查找roscpp这个package的路径。我的运行提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Command <span class="string">'rospack'</span> not found, but can be installed with:</span><br><span class="line"></span><br><span class="line">sudo apt install rospack-tools</span><br></pre></td></tr></table></figure>
+
+<p>就照个提示，运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install rospack-tools</span><br></pre></td></tr></table></figure>
+
+<p>之后再运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rospack find roscpp</span><br></pre></td></tr></table></figure>
+
+<p>一切正常，输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/ros/kinetic/share/roscpp</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-roscd"><a href="#2-roscd" class="headerlink" title="2. roscd"></a>2. roscd</h3><p>比如上面查找到了roscpp，那怎样快速进入roscpp所在文件夹呢？就用roscd，例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscd roscpp</span><br></pre></td></tr></table></figure>
+
+<p>再用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+
+<p>查看当前路径。可以发现输出和上面的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rospack find</span><br></pre></td></tr></table></figure>
+
+<p>的结果一样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscd <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p>可以查看ROS的输出日志，在报错的时候有用。注：初次时没有运行过ROS时可能没有相关日志文件。</p>
+<h3 id="3-rosls"><a href="#3-rosls" class="headerlink" title="3. rosls"></a>3. rosls</h3><p>rosls 可以帮我们快速看某个包里面的文件结构，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rosls rospy</span><br></pre></td></tr></table></figure>
+
+<p>可以查看rospy这个package里面的文件。</p>
+<h3 id="4-tab键"><a href="#4-tab键" class="headerlink" title="4. tab键"></a>4. tab键</h3><p>tab键很好用，可以自动补全很多ROS命令及其选项，如果超过一种可能补全方法，两次tab显示相关可能选项。</p>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><ul>
+<li>rospack = ros + pack(age)</li>
+<li>roscd = ros + cd</li>
+<li>rosls = ros + ls</li>
+</ul>
+<p>下一节讲解创建package。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
@@ -301,12 +344,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>test-categories</p>
+    <p><span class="copy-title">文章标题:</span>ROS文件操作常用命令</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="John Doe">John Doe</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-08-20, 16:57:46</p>
-    <p><span class="copy-title">最后更新:</span>2019-08-20, 16:58:26</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/20/test-categories/" title="test-categories">http://yoursite.com/2019/08/20/test-categories/</a>
+    <p><span class="copy-title">发布时间:</span>2019-08-20, 23:11:58</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-20, 23:17:04</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/20/ros-filesystem-tools-md/" title="ROS文件操作常用命令">http://yoursite.com/2019/08/20/ros-filesystem-tools-md/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
