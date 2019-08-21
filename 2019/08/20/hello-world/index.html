@@ -110,7 +110,7 @@
     
         
             
-            <li><div data-rel="live">live<small>(1)</small></div>
+            <li><div data-rel="ROS">ROS<small>(2)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="ROS">ROS<small>(2)</small></div>
+            <li><div data-rel="live">live<small>(1)</small></div>
                 
             </li>
             
@@ -169,11 +169,11 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">life</a>
+        <a href="javascript:" class="color4">ros</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ros</a>
+        <a href="javascript:" class="color5">life</a>
     </li>
     
     <div class="clearfix"></div>
@@ -190,14 +190,6 @@
             <span class="post-date" title="2019-08-20 15:42:31">2019/08/20</span>
         </a>
         
-        <a  class="live "
-           href="/2019/08/20/test-categories/"
-           data-tag="life"
-           data-author="" >
-            <span class="post-title" title="test-categories">test-categories</span>
-            <span class="post-date" title="2019-08-20 16:57:46">2019/08/20</span>
-        </a>
-        
         <a  class="ROS "
            href="/2019/08/20/ros-filesystem-tools-md/"
            data-tag="ros"
@@ -212,6 +204,14 @@
            data-author="" >
             <span class="post-title" title="ubuntu18安装ROS">ubuntu18安装ROS</span>
             <span class="post-date" title="2019-08-20 23:04:39">2019/08/20</span>
+        </a>
+        
+        <a  class="live "
+           href="/2019/08/20/test-categories/"
+           data-tag="life"
+           data-author="" >
+            <span class="post-title" title="test-categories">test-categories</span>
+            <span class="post-date" title="2019-08-20 16:57:46">2019/08/20</span>
         </a>
         
     </nav>
@@ -367,7 +367,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#life','#ros',],
+            'data': ['#ros','#life',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
