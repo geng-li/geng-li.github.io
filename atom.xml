@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-08-20T15:06:44.284Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu18安装ROS</title>
+    <link href="http://yoursite.com/2019/08/20/ros-install/"/>
+    <id>http://yoursite.com/2019/08/20/ros-install/</id>
+    <published>2019-08-20T15:04:39.000Z</published>
+    <updated>2019-08-20T15:06:44.284Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一节-安装配置ROS"><a href="#第一节-安装配置ROS" class="headerlink" title="第一节 安装配置ROS"></a>第一节 安装配置ROS</h1><p>ROS最好运行在Ubuntu系统下，每个版本的Ubuntu都对应不同的ROS，我用的是Ubuntu18.04，对应ROS  Memodic。下面说安装方法。参考<a href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank" rel="noopener">此处</a>。</p><hr><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" &gt; /etc/apt/sources.list.d/ros-latest.list'</span></span><br><span class="line">sudo apt-key adv --keyserver <span class="string">'hkp://keyserver.ubuntu.com:80'</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><p>ROS有多个组件，如qrt, rviz等，建议完整安装，即包含所有组件。完整安装命令为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ros-melodic-desktop-full</span><br></pre></td></tr></table></figure><p>会按”y”键然后回车确认安装。等一段时间，就会</p><h3 id="2-初始化rosdep"><a href="#2-初始化rosdep" class="headerlink" title="2. 初始化rosdep"></a>2. 初始化rosdep</h3><p>初始化rosdep有利于后续的编译和运行各种组件，所用命令为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure><h3 id="3-初始化环境变量"><a href="#3-初始化环境变量" class="headerlink" title="3. 初始化环境变量"></a>3. 初始化环境变量</h3><p>环境变量就是系统工作过程中的全局变量，ROS所在的库目录等都要告诉系统，为了避免每次运行ROS都要初始化一遍，可以把相关命令放在 ~/.bashrc 文件里，这样每打开终端时都会自动运行里面的脚本。方法为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure><hr><p>至此，就完成了ROS的安装和配置。请看下一节。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;第一节-安装配置ROS&quot;&gt;&lt;a href=&quot;#第一节-安装配置ROS&quot; class=&quot;headerlink&quot; title=&quot;第一节 安装配置ROS&quot;&gt;&lt;/a&gt;第一节 安装配置ROS&lt;/h1&gt;&lt;p&gt;ROS最好运行在Ubuntu系统下，每个版本的Ubuntu都对应不同
+      
+    
+    </summary>
+    
+      <category term="机器人 ros" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA-ros/"/>
+    
+    
+      <category term="ros" scheme="http://yoursite.com/tags/ros/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test-categories</title>
+    <link href="http://yoursite.com/2019/08/20/test-categories/"/>
+    <id>http://yoursite.com/2019/08/20/test-categories/</id>
+    <published>2019-08-20T08:57:46.000Z</published>
+    <updated>2019-08-20T08:58:26.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>Nothing to say!!!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Nothing to say!!!&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="live" scheme="http://yoursite.com/categories/live/"/>
+    
+    
+      <category term="life" scheme="http://yoursite.com/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/08/20/hello-world/"/>
+    <id>http://yoursite.com/2019/08/20/hello-world/</id>
+    <published>2019-08-20T07:42:31.717Z</published>
+    <updated>2019-08-20T07:42:31.717Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
